@@ -80,7 +80,7 @@ const App = () => {
 
   const activeImage = useMemo(() => {
     return images.find(img => img.id === activeImageId);
-  }, [activeImageId]);
+  }, [images, activeImageId]);
 
   return (
     <div className="container">
