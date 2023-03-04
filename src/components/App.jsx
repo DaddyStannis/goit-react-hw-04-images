@@ -53,8 +53,8 @@ const App = () => {
           throw new Error('Nothing found!');
         }
 
-        setImages(() => {
-          return [...images, ...data.hits];
+        setImages(prevImages => {
+          return [...prevImages, ...data.hits];
         });
         setTotal(data.total);
       } catch (e) {
