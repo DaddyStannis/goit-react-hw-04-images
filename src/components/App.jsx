@@ -42,39 +42,37 @@ const App = () => {
     setActiveImageId(null);
   }, [activeImageId]);
 
-  const updateImages = async () => {
-    if (search) {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const data = await getImages(search, page);
-
-        if (!data.hits.length) {
-          setTotal(0);
-          throw new Error('Nothing found!');
-        }
-
-        setImages(() => {
-          return [...images, ...data.hits];
-        });
-        setTotal(data.total);
-      } catch (e) {
-        setError(e);
-      } finally {
-        setLoading(false);
-      }
-    }
-  };
-
   useEffect(() => {
     setPage(1);
-    updateImages();
   }, [search]);
 
   useEffect(() => {
+    const updateImages = async () => {
+      if (search) {
+        setLoading(true);
+        setError(null);
+
+        try {
+          const data = await getImages(search, page);
+
+          if (!data.hits.length) {
+            setTotal(0);
+            throw new Error('Nothing found!');
+          }
+
+          setImages(() => {
+            return [...images, ...data.hits];
+          });
+          setTotal(data.total);
+        } catch (e) {
+          setError(e);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
     updateImages();
-  }, [page]);
+  }, [search, page]);
 
   const showButtonLoadMore = Boolean(images.length < total);
 
