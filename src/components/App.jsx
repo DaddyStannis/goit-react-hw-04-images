@@ -17,16 +17,13 @@ const App = () => {
   const [error, setError] = useState(null);
   const [activeImageId, setActiveImageId] = useState(null);
 
-  const handleSubmit = useCallback(
-    value => {
-      if (value && value !== search) {
-        setSearch(value);
-        setImages([]);
-        setPage(1);
-      }
-    },
-    [search]
-  );
+  const handleSubmit = value => {
+    if (value && value !== search) {
+      setSearch(value);
+      setImages([]);
+      setPage(1);
+    }
+  };
 
   const handleLoadMoreClick = useCallback(() => {
     setPage(() => page + 1);
