@@ -29,16 +29,13 @@ const App = () => {
     setPage(() => page + 1);
   }, [page]);
 
-  const handleImgOpen = useCallback(
-    id => {
-      setActiveImageId(id);
-    },
-    [activeImageId]
-  );
+  const handleImgOpen = useCallback(id => {
+    setActiveImageId(id);
+  }, []);
 
   const handleImgClose = useCallback(() => {
     setActiveImageId(null);
-  }, [activeImageId]);
+  }, []);
 
   useEffect(() => {
     const updateImages = async () => {
