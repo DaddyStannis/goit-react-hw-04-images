@@ -1,6 +1,6 @@
 import styles from './searchbar.module.css';
 import { ReactSVG } from 'react-svg';
-import { memo, useState } from 'react';
+import { useState, memo } from 'react';
 import magnifyingGlass from '../../../shared/images/svg/magnifying-glass.svg';
 import PropTypes from 'prop-types';
 
