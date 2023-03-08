@@ -9,7 +9,6 @@ const Searchbar = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const { value } = e.target.elements.search;
     onSubmit(value.trim());
   };
 

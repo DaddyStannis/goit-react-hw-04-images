@@ -10,7 +10,7 @@ const ImageGalleryItem = ({ src, alt, id, onClick }) => {
         src={src}
         alt={alt}
         width="100"
-        onClick={e => {
+        onClick={() => {
           onClick(id);
         }}
       />

@@ -26,7 +26,7 @@ const App = () => {
   };
 
   const handleLoadMoreClick = useCallback(() => {
-    setPage(() => page + 1);
+    setPage(prevPage => prevPage + 1);
   }, [page]);
 
   const handleImgOpen = useCallback(id => {
